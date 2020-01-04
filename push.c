@@ -42,9 +42,9 @@ void push(char *num)
 
 /**
  * checkNum - checks if a string is a valid number
- * @str: The string to check
+ * @num: The string to check
  */
-void checkNum(char *str)
+void checkNum(char *num)
 {
 	int i = 0;
 

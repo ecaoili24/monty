@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 
 	openfile(argv[1]);
 	process();
-	/** TODO: Cleanup **/
+	cleanup(gvar.stack, gvar.file);
 	return (0);
 }
 
@@ -66,6 +66,8 @@ void process(void)
 			push(strtok(NULL, " \t\n"));
 		else
 			runopcode(opcode, gvar.lineNum);
+
+		free(line);
 	}
 }
 
@@ -94,4 +96,23 @@ void runopcode(char *opcode, unsigned int lineNum)
 
 	dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", lineNum, opcode);
 	exit(EXIT_FAILURE);
+}
+
+/**
+ * cleanup - Function to clean up stack and file
+ * @stack: Pointer to the stack
+ * @f: Pointer to the open file
+ */
+void cleanup(stack_t *stack, FILE *f)
+{
+	stack_t *item;
+
+	while (stack)
+	{
+		item = stack->next;
+		free(stack);
+		stack = item;
+	}
+
+	fclose(f);
 }
