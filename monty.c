@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 
 	openfile(argv[1]);
 	process();
-	cleanup(gvar.stack, gvar.file);
+	cleanup();
 	return (0);
 }
 
@@ -81,6 +81,7 @@ void runopcode(char *opcode, unsigned int lineNum)
 	instruction_t opcodes[] = {
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}
 	};
 
@@ -94,7 +95,7 @@ void runopcode(char *opcode, unsigned int lineNum)
 	}
 
 	dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", lineNum, opcode);
-	cleanup(gvar.stack, gvar.file);
+	cleanup();
 	exit(EXIT_FAILURE);
 }
 
@@ -103,18 +104,18 @@ void runopcode(char *opcode, unsigned int lineNum)
  * @stack: Pointer to the stack
  * @f: Pointer to the open file
  */
-void cleanup(stack_t *stack, FILE *f)
+void cleanup(void)
 {
 	stack_t *item;
 
-	while (stack)
+	while (gvar.stack)
 	{
-		item = stack->next;
-		free(stack);
-		stack = item;
+		item = gvar.stack->next;
+		free(gvar.stack);
+		gvar.stack = item;
 	}
 
 	free(gvar.line);
 
-	fclose(f);
+	fclose(gvar.file);
 }

@@ -11,7 +11,7 @@ void push(char *num)
 	if (num == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%u: usage: push integer\n", gvar.lineNum);
-		cleanup(gvar.stack, gvar.file);
+		cleanup();
 		exit(EXIT_FAILURE);
 	}
 
@@ -21,7 +21,7 @@ void push(char *num)
 	if (!new)
 	{
 		dprintf(STDERR_FILENO, "Error: malloc failed\n");
-		cleanup(gvar.stack, gvar.file);
+		cleanup();
 		exit(EXIT_FAILURE);
 	}
 
@@ -59,7 +59,7 @@ void checkNum(char *num)
 		{
 			dprintf(STDERR_FILENO, "L%u: usage: push integer\n",
 					gvar.lineNum);
-			cleanup(gvar.stack, gvar.file);
+			cleanup();
 			exit(EXIT_FAILURE);
 		}
 	}
