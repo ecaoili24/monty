@@ -13,6 +13,7 @@ gvar_t gvar;
 int main(int argc, char **argv)
 {
 	gvar.stack = NULL;
+	gvar.line = NULL;
 
 	if (argc != 2)
 	{
@@ -51,14 +52,13 @@ void process(void)
 {
 	ssize_t read;
 	size_t len = 0;
-	char *line = NULL;
 	char *opcode;
 
-	while ((read = getline(&line, &len, gvar.file)) != -1)
+	while ((read = getline(&gvar.line, &len, gvar.file)) != -1)
 	{
 		gvar.lineNum++;
 
-		opcode = strtok(line, " \t\n");
+		opcode = strtok(gvar.line, " \t\n");
 		if (!opcode)
 			continue;
 
@@ -66,8 +66,6 @@ void process(void)
 			push(strtok(NULL, " \t\n"));
 		else
 			runopcode(opcode, gvar.lineNum);
-
-		free(line);
 	}
 }
 
@@ -95,6 +93,7 @@ void runopcode(char *opcode, unsigned int lineNum)
 	}
 
 	dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", lineNum, opcode);
+	cleanup(gvar.stack, gvar.file);
 	exit(EXIT_FAILURE);
 }
 
@@ -113,6 +112,8 @@ void cleanup(stack_t *stack, FILE *f)
 		free(stack);
 		stack = item;
 	}
+
+	free(gvar.line);
 
 	fclose(f);
 }

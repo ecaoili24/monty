@@ -42,12 +42,14 @@ typedef struct instruction_s
  * @file: The monty file being read
  * @lineNum: The current line number being read
  * @stack: The stack being used
+ * @line: The current line being read
  */
 typedef struct gvar_s
 {
 	FILE *file;
 	unsigned int lineNum;
 	stack_t *stack;
+	char *line;
 } gvar_t;
 
 extern gvar_t gvar;
