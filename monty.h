@@ -41,7 +41,7 @@ typedef struct instruction_s
 
 /* helper functions */
 void parse(char *fileName, stack_t **head);
-void dropnl(char *src);
+void drop_newLine(char *src);
 void exe_operation(char *operation, stack_t **head, unsigned int line_number);
 /* commands */
 void do_push(stack_t **stack, unsigned int line_number);
