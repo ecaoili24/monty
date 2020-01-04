@@ -44,6 +44,8 @@ void process(void)
 		gvar.lineNum++;
 
 		opcode = strtok(line, " \t\n");
+		if (!opcode)
+			continue;
 
 		if (strcmp(opcode, "push") == 0)
 			push(strtok(NULL, " \t\n"));
