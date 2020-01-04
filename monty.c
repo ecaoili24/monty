@@ -80,6 +80,7 @@ void runopcode(char *opcode, unsigned int lineNum)
 
 	instruction_t opcodes[] = {
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 

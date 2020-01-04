@@ -62,5 +62,6 @@ void pall(stack_t **stack, unsigned int lineNum);
 void runopcode(char *opcode, unsigned int lineNum);
 void cleanup(stack_t *stack, FILE *f);
 void checkNum(char *str);
+void pint(stack_t **stack, unsigned int lineNum);
 
 #endif
