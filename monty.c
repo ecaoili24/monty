@@ -49,7 +49,29 @@ void process(void)
 
 		if (strcmp(opcode, "push") == 0)
 			push(strtok(NULL, " \t\n"));
-		else if (strcmp(opcode, "pall") == 0)
-			pall(&gvar.stack, gvar.lineNum);
+		else
+			runopcode(opcode, gvar.lineNum);
 	}
+}
+
+void runopcode(char *opcode, unsigned int lineNum)
+{
+	unsigned int i;
+
+	instruction_t opcodes[] = {
+		{"pall", pall},
+		{NULL, NULL}
+	};
+
+	for (i = 0; opcodes[i].opcode; ++i)
+	{
+		if (strcmp(opcodes[i].opcode, opcode) == 0)
+		{
+			opcodes[i].f(&gvar.stack, lineNum);
+			return;
+		}
+	}
+
+	dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", lineNum, opcode);
+	exit(EXIT_FAILURE);
 }
