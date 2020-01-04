@@ -1,13 +1,11 @@
-#ifndef MONTY_H
-#define MONTY_H
+#ifndef __HEADER__
+#define __HEADER__
 
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -39,14 +37,19 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* helper functions */
-void parse(char *fileName, stack_t **head);
-void drop_newLine(char *src);
-void exe_operation(char *operation, stack_t **head, unsigned int line_number);
-/* commands */
-void do_push(stack_t **stack, unsigned int line_number);
-void do_pall(stack_t **stack, unsigned int line_number);
-void do_pint(stack_t **stack, unsigned int line_number);
-void do_pop(stack_t **stack, unsigned int line_number);
+typedef struct gvar_s
+{
+	FILE *file;
+	unsigned int lineNum;
+	stack_t *stack;
+} gvar_t;
 
-#endif /* MONTY_H */
+extern gvar_t gvar;
+
+void _printerr(char *c);
+void openfile(char *name);
+void process(void);
+void push(char *num);
+void pall(stack_t **stack, unsigned int lineNum);
+
+#endif
