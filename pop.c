@@ -7,6 +7,8 @@
  */
 void pop(stack_t **stack, unsigned int lineNum)
 {
+	stack_t *pitem;
+
 	if (!*stack)
 	{
 		dprintf(STDERR_FILENO, "L%u: can't pop an empty stack\n", lineNum);
@@ -14,7 +16,9 @@ void pop(stack_t **stack, unsigned int lineNum)
 		exit(EXIT_FAILURE);
 	}
 
+	pitem = *stack;
 	*stack = (*stack)->next;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
+	free(pitem);
+	if (*stack)
+		(*stack)->prev = NULL;
 }
