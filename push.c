@@ -6,8 +6,6 @@
  */
 void push(char *num)
 {
-	stack_t *new;
-
 	if (num == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%u: usage: push integer\n", gvar.lineNum);
@@ -17,7 +15,17 @@ void push(char *num)
 
 	checkNum(num);
 
-	new = malloc(sizeof(stack_t));
+	pushInt(atoi(num));
+}
+
+/**
+ * pushInt - pushes an int to the top of the stack
+ * @n: The number to be pushed
+ */
+void pushInt(int n)
+{
+	stack_t *new = malloc(sizeof(stack_t));
+
 	if (!new)
 	{
 		dprintf(STDERR_FILENO, "Error: malloc failed\n");
@@ -25,7 +33,7 @@ void push(char *num)
 		exit(EXIT_FAILURE);
 	}
 
-	new->n = atoi(num);
+	new->n = n;
 
 	if (!gvar.stack)
 	{

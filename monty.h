@@ -65,5 +65,7 @@ void checkNum(char *str);
 void pint(stack_t **stack, unsigned int lineNum);
 void pop(stack_t **stack, unsigned int lineNum);
 void swap(stack_t **stack, unsigned int l);
+void pushInt(int n);
+void add(stack_t **stack, unsigned int l);
 
 #endif
