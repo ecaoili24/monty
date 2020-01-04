@@ -1,8 +1,11 @@
 #include "monty.h"
 
+/**
+ * push - Pushes an item to the top of the stack
+ * @num: The number to push
+ */
 void push(char *num)
 {
-	int i = 0;
 	stack_t *new;
 
 	if (num == NULL)
@@ -11,18 +14,7 @@ void push(char *num)
 		exit(EXIT_FAILURE);
 	}
 
-	if (num[0] == '-')
-		i++;
-
-	for (; num[i]; ++i)
-	{
-		if (!isdigit(num[i]))
-		{
-			dprintf(STDERR_FILENO, "L%u: usage: push integer\n",
-					gvar.lineNum);
-			exit(EXIT_FAILURE);
-		}
-	}
+	checkNum(num);
 
 	new = malloc(sizeof(stack_t));
 	if (!new)
@@ -45,5 +37,27 @@ void push(char *num)
 		new->prev = NULL;
 		gvar.stack->prev = new;
 		gvar.stack = new;
+	}
+}
+
+/**
+ * checkNum - checks if a string is a valid number
+ * @str: The string to check
+ */
+void checkNum(char *str)
+{
+	int i = 0;
+
+	if (num[0] == '-')
+		i++;
+
+	for (; num[i]; ++i)
+	{
+		if (!isdigit(num[i]))
+		{
+			dprintf(STDERR_FILENO, "L%u: usage: push integer\n",
+					gvar.lineNum);
+			exit(EXIT_FAILURE);
+		}
 	}
 }
