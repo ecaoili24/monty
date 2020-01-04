@@ -82,6 +82,7 @@ void runopcode(char *opcode, unsigned int lineNum)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
+		{"swap", swap},
 		{NULL, NULL}
 	};
 
@@ -101,8 +102,6 @@ void runopcode(char *opcode, unsigned int lineNum)
 
 /**
  * cleanup - Function to clean up stack and file
- * @stack: Pointer to the stack
- * @f: Pointer to the open file
  */
 void cleanup(void)
 {

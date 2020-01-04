@@ -64,5 +64,6 @@ void cleanup(void);
 void checkNum(char *str);
 void pint(stack_t **stack, unsigned int lineNum);
 void pop(stack_t **stack, unsigned int lineNum);
+void swap(stack_t **stack, unsigned int l);
 
 #endif
