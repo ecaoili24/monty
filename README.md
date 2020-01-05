@@ -32,3 +32,9 @@ Files containing Monty byte codes usually have the .m extension. Most of the ind
 - No more than 5 functions per file
 - The prototypes of all your functions should be included in your header file called `monty.h`
 - Header file should be include guarded
+
+### Setup and Compilation 
+```
+  git clone https://github.com/ecaoili24/monty.git
+  gcc -Wall -Werror -Wextra -pedantic *.c -o monty
+  ```
