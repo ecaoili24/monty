@@ -58,7 +58,7 @@ void divide(stack_t **stack, unsigned int l)
 {
 	int x, y, quotient;
 
-	if (!stack || !(*stack)->next)
+	if (!*stack || !(*stack)->next)
 	{
 		dprintf(STDERR_FILENO, "L%u: can't div, stack too short\n", l);
 		cleanup();
