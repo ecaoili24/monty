@@ -72,5 +72,5 @@ void pchar(stack_t **stack, unsigned int l);
 void sub(stack_t **stack, unsigned int l);
 void divide(stack_t **stack, unsigned int l);
 void mul(stack_t **stack, unsigned int l);
-
+void mod(stack_t **stack, unsigned int l);
 #endif
