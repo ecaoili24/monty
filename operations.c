@@ -106,3 +106,36 @@ void mul(stack_t **stack, unsigned int l)
 
 	(*stack)->n = product;
 }
+/**
+ * mod - mod computes the rest of the division of the second top element of the
+ * stack by the top element of the stack.
+ * @stack: double pointer to the head of the stack
+ * @l: the line number currently being run
+ */
+void mod(stack_t **stack, unsigned int l)
+{
+	int x, y, mod;
+
+	if (!*stack || !(*stack)->next)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't mod, stack too short\n", l);
+		cleanup();
+		exit(EXIT_FAILURE);
+	}
+
+	x = (*stack)->n;
+	y = (*stack)->next->n;
+
+	if (x == 0)
+	{
+		dprintf(STDERR_FILENO, "L%u: division by zero\n", l);
+		cleanup();
+		exit(EXIT_FAILURE);
+	}
+
+	mod = y % x;
+
+	pop(stack, l);
+
+	(*stack)->n = mod;
+}
