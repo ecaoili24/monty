@@ -14,6 +14,7 @@ int main(int argc, char **argv)
 {
 	gvar.stack = NULL;
 	gvar.line = NULL;
+	gvar.isStack = 1;
 
 	if (argc != 2)
 	{
@@ -91,6 +92,8 @@ void runopcode(char *opcode, unsigned int lineNum)
 		{"mod", mod},
 		{"pchar", pchar},
 		{"pstr", pstr},
+		{"stack", to_stack},
+		{"queue", to_queue},
 		{NULL, NULL}
 	};
 

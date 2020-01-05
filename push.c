@@ -25,6 +25,7 @@ void push(char *num)
 void pushInt(int n)
 {
 	stack_t *new = malloc(sizeof(stack_t));
+	stack_t *tmp = gvar.stack;
 
 	if (!new)
 	{
@@ -35,18 +36,38 @@ void pushInt(int n)
 
 	new->n = n;
 
-	if (!gvar.stack)
+	if (gvar.isStack)
 	{
-		new->next = NULL;
-		new->prev = NULL;
-		gvar.stack = new;
+		if (!gvar.stack)
+		{
+			new->next = NULL;
+			new->prev = NULL;
+			gvar.stack = new;
+		}
+		else
+		{
+			new->next = gvar.stack;
+			new->prev = NULL;
+			gvar.stack->prev = new;
+			gvar.stack = new;	
+		}
 	}
 	else
 	{
-		new->next = gvar.stack;
-		new->prev = NULL;
-		gvar.stack->prev = new;
-		gvar.stack = new;
+		if (!gvar.stack)
+		{
+			new->next = NULL;
+			new->prev = NULL;
+			gvar.stack = new;
+		}
+		else
+		{
+			while (tmp->next)
+				tmp = tmp->next;
+			tmp->next = new;
+			new->prev = tmp;
+			new->next = NULL;
+		}
 	}
 }
 

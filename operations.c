@@ -18,8 +18,7 @@ void add(stack_t **stack, unsigned int l)
 
 	sum = (*stack)->n + (*stack)->next->n;
 	pop(stack, l);
-	pop(stack, l);
-	pushInt(sum);
+	(*stack)->n = sum;
 }
 
 /**

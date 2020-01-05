@@ -50,6 +50,7 @@ typedef struct gvar_s
 	unsigned int lineNum;
 	stack_t *stack;
 	char *line;
+	char isStack;
 } gvar_t;
 
 extern gvar_t gvar;
@@ -74,5 +75,9 @@ void divide(stack_t **stack, unsigned int l);
 void mul(stack_t **stack, unsigned int l);
 void mod(stack_t **stack, unsigned int l);
 void pstr(stack_t **stack, unsigned int l);
+void to_stack(stack_t **stack, unsigned int l);
+void to_queue(stack_t **stack, unsigned int l);
+int getTop();
+int getSecond();
 
 #endif
