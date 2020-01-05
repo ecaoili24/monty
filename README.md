@@ -19,3 +19,16 @@ Monty 0.98 is a scripting language that is first compiled into Monty byte codes 
 ### Monty byte code files
 
 Files containing Monty byte codes usually have the .m extension. Most of the industry uses this standard but it is not required by the specification of the language.
+
+## Requirements
+
+### Requirements
+
+- Allowed editors: `vi`, `vim`, `emacs`
+- All your files will be compiled on Ubuntu 14.04 LTS
+- All your files should end with a new line
+- Code follows the [Betty](https://github.com/holbertonschool/Betty/blob/master/betty-style.pl) [Style](https://github.com/holbertonschool/Betty/blob/master/betty-doc.pl)
+- You allowed to use a maximum of one global variable
+- No more than 5 functions per file
+- The prototypes of all your functions should be included in your header file called `monty.h`
+- Header file should be include guarded
