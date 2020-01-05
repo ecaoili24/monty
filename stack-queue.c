@@ -2,7 +2,7 @@
 
 /**
  * to_stack - Sets the mode to stack (default)
- * @stack: Double pointer to the head of the stack
+ * @stack: Double pointer to the head of the stack (or queue)
  * @l: The current line number being run
  */
 void to_stack(stack_t **stack, unsigned int l)
@@ -14,7 +14,7 @@ void to_stack(stack_t **stack, unsigned int l)
 
 /**
  * to_queue - Sets the mode to queue
- * @stack: Double pointer to the head of the stack
+ * @stack: Double pointer to the head of the stack (or queue)
  * @l: The current line number being run
  */
 void to_queue(stack_t **stack, unsigned int l)
