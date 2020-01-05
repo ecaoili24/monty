@@ -89,6 +89,7 @@ void runopcode(char *opcode, unsigned int lineNum)
 		{"div", divide},
 		{"mul", mul},
 		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 
