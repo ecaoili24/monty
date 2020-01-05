@@ -91,6 +91,7 @@ void runopcode(char *opcode, unsigned int lineNum)
 		{"mod", mod},
 		{"pchar", pchar},
 		{"rotl", rotl},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 
