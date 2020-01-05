@@ -49,7 +49,7 @@ void sub(stack_t **stack, unsigned int l)
 }
 
 /**
- * divide - the The opcode div divides the second top element of the stack by the
+ * divide - The opcode div divides the second top element of the stack by the
  * top element of the stack.
  * @stack: double pointer to the head of the stack
  * @l: the line number currently being run
@@ -71,6 +71,7 @@ void divide(stack_t **stack, unsigned int l)
 	if (x == 0)
 	{
 		dprintf(STDERR_FILENO, "L%u: division by zero\n", l);
+		cleanup();
 		exit(EXIT_FAILURE);
 	}
 
