@@ -68,5 +68,5 @@ void swap(stack_t **stack, unsigned int l);
 void pushInt(int n);
 void add(stack_t **stack, unsigned int l);
 void nop(stack_t **stack, unsigned int l);
-
+void sub(stack_t **stack, unsigned int l);
 #endif
