@@ -59,7 +59,7 @@ void process(void)
 		gvar.lineNum++;
 
 		opcode = strtok(gvar.line, " \t\n");
-		if (!opcode)
+		if (!opcode || opcode[0] == '#')
 			continue;
 
 		if (strcmp(opcode, "push") == 0)
