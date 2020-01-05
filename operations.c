@@ -32,7 +32,7 @@ void sub(stack_t **stack, unsigned int l)
 {
 	int x, y, difference;
 
-	if (*stack == NULL || (*stack)->next == NULL)
+	if (!*stack || !(*stack)->next)
 	{
 		dprintf(STDERR_FILENO, "L%u: can't sub, stack too short\n", l);
 		cleanup();
@@ -49,7 +49,7 @@ void sub(stack_t **stack, unsigned int l)
 }
 
 /**
- * divide - The opcode div divides the second top element of the stack by the
+ * divide - The opcode div, divides the second top element of the stack by the
  * top element of the stack.
  * @stack: double pointer to the head of the stack
  * @l: the line number currently being run
@@ -80,4 +80,29 @@ void divide(stack_t **stack, unsigned int l)
 	pop(stack, l);
 
 	(*stack)->n = quotient;
+}
+/**
+ * mul - the opcode mul, multiplies the the second top element of the stack
+ * with the top element of the stack.
+ * @stack: double pointer to the head of the stack
+ * @l: the line number currently being run
+ */
+void mul(stack_t **stack, unsigned int l)
+{
+	int x, y, product;
+
+	if (!*stack || !(*stack)->next)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't mul, stack too short\n", l);
+		cleanup();
+		exit(EXIT_FAILURE);
+	}
+
+	x = (*stack)->n;
+	y = (*stack)->next->n;
+	product = x * y;
+
+	pop(stack, l);
+
+	(*stack)->n = product;
 }
