@@ -85,6 +85,8 @@ void runopcode(char *opcode, unsigned int lineNum)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+		{"sub", sub},
+		{"div", divide},
 		{"pchar", pchar},
 		{NULL, NULL}
 	};

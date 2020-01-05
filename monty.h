@@ -69,5 +69,7 @@ void pushInt(int n);
 void add(stack_t **stack, unsigned int l);
 void nop(stack_t **stack, unsigned int l);
 void pchar(stack_t **stack, unsigned int l);
+void sub(stack_t **stack, unsigned int l);
+void divide(stack_t **stack, unsigned int l);
 
 #endif
