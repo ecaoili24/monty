@@ -10,7 +10,7 @@
 
 The following repository covers programs written in C for the Data structures and Algorithms curriculum at Holberton School. It covers stacks (LIFO) and queues (FIFO). The data structures are considered to have a limited access.
 
-For example, in a stack, elements can be added or removed by push or pop following a linear order of Last In, First Out. Think of a stack as a actual stack of books. To get to the first book at the bottom, you must first remove the top book followed by the other books after it in order to get to the bottom of the stack. 
+For example, in a stack, elements can be added or removed by push or pop following a linear order of Last In, First Out. Think of a stack as an actual stack of books. To get to the first book at the bottom, you must first remove the top book followed by the other books after it--in order to get to the bottom of the stack. 
 
 In contrast, elements in a queue can be added in a First in, First out basis. Therefore, elements are added by an enqueue and removed by a dequeue. Think of it as a line of people onboarding a train, but the first person in becomes the first person to exit the train when deboarding. It has two points of access (the front and the back). 
 
@@ -35,7 +35,7 @@ Files containing Monty byte codes usually have the .m extension. Most of the ind
 - The prototypes of all your functions should be included in your header file called `monty.h`
 - Header file should be include guarded
 
-### Setup and Compilation 
+### Setup
 ```
   git clone https://github.com/ecaoili24/monty.git
   gcc -Wall -Werror -Wextra -pedantic *.c -o monty
@@ -97,4 +97,8 @@ Files containing Monty byte codes usually have the .m extension. Most of the ind
   3
   1
   ```
+  ## Authors
+  
+  [Ben Keener](https://github.com/bean710)
+  [Erika Caoili](https://github.com/ecaoili24)
  
