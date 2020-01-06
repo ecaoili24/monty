@@ -49,7 +49,7 @@ void pushInt(int n)
 			new->next = gvar.stack;
 			new->prev = NULL;
 			gvar.stack->prev = new;
-			gvar.stack = new;	
+			gvar.stack = new;
 		}
 	}
 	else
