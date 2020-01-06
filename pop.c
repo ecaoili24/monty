@@ -21,5 +21,5 @@ void pop(stack_t **stack, unsigned int lineNum)
 	*stack = (*stack)->next;
 	free(pitem);
 	if (*stack)
-		(*stack)->prev = NULL;	
+		(*stack)->prev = NULL;
 }
