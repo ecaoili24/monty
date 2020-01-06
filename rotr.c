@@ -1,9 +1,9 @@
 #include "monty.h"
 
 /**
- * rotr_list - The opcode rotr rotates the stack to the bottom
+ * rotr - The opcode rotr rotates the stack to the bottom
  * @stack: pointer to the head of the list
- * @line_number: line number of instruction
+ * @l: line number of instruction
  */
 void rotr(stack_t **stack, unsigned int l)
 {
