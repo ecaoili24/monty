@@ -36,28 +36,19 @@ void pushInt(int n)
 
 	new->n = n;
 
-	if (gvar.isStack)
+	if (!gvar.stack)
 	{
-		if (!gvar.stack)
-		{
-			new->next = NULL;
-			new->prev = NULL;
-			gvar.stack = new;
-		}
-		else
+		new->next = NULL;
+		new->prev = NULL;
+		gvar.stack = new;
+	}
+	else
+	{
+		if (gvar.isStack)
 		{
 			new->next = gvar.stack;
 			new->prev = NULL;
 			gvar.stack->prev = new;
-			gvar.stack = new;
-		}
-	}
-	else
-	{
-		if (!gvar.stack)
-		{
-			new->next = NULL;
-			new->prev = NULL;
 			gvar.stack = new;
 		}
 		else
