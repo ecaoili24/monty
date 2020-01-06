@@ -80,5 +80,6 @@ void to_stack(stack_t **stack, unsigned int l);
 void to_queue(stack_t **stack, unsigned int l);
 int getTop();
 int getSecond();
+void rotr(stack_t **stack, unsigned int l);
 
 #endif

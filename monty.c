@@ -92,6 +92,7 @@ void runopcode(char *opcode, unsigned int lineNum)
 		{"mod", mod},
 		{"pchar", pchar},
 		{"rotl", rotl},
+		{"rotr", rotr},
 		{"pstr", pstr},
 		{"stack", to_stack},
 		{"queue", to_queue},
